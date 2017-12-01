@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "noname",
+  "version": "1.0",
+  "description": "description",
+  "icons" : {
+    "128": "icon/icon.png"
+  },
+  "browser_action": {
+    "default_title" : "default_title",
+    "default_popup": "html/popup.html",
+    "default_icon": "icon/icon.png",
+	"default_name": "test"
+  },
+  "permissions": [
+    "tabs", "webRequest", "*://*/*", "clipboardWrite", "notifications"
+  ],
+  "background" : {
+  	"scripts" : [ "js/jquery-2.2.4.min.js", "js/background.js" ]
+  },
+  "content_scripts": [{
+    "matches": ["*://*/*"],
+    "js": ["js/content.js"],
+    "run_at": "document_start"
+  }]
+}
+
